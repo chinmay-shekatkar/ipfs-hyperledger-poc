@@ -1,0 +1,83 @@
+{
+    "name": "file-network",
+    "version": "1.0.0",
+    "client": {
+        "organization": "bob",
+        "connection": {
+            "timeout": {
+                "peer": {
+                    "endorser": "300"
+                },
+                "orderer": "300"
+            }
+        }
+    },
+    "channels": {
+        "sharechannelv1": {
+            "orderers": [
+                "orderer"
+            ],
+            "peers": {
+                "bob": {},
+		        "alice": {}
+            }
+        }
+    },
+    "organizations": {
+        "bob": {
+            "mspid": "bob",
+            "peers": [
+                "bob"
+            ],
+            "certificateAuthorities": [
+                "ca.bob"
+            ],
+            "orderers": [
+                "orderer"
+            ]
+        }
+    },
+    "orderers": {
+        "orderer": {
+            "url": "grpc://localhost:7050",
+            "tlsCACerts": {
+                "path": "crypto-config/ordererOrganizations/files.com/tlsca/tlsca.files.com-cert.pem"
+            }
+    
+        }
+    },
+    "peers": {
+        "bob": {
+            "url": "grpc://localhost:7051",
+            "tlsCACerts": {
+                "path": "crypto-config/peerOrganizations/bob.files.com/tlsca/tlsca.bob.files.com-cert.pem"
+            },
+            "grpcOptions": {
+                "ssl-target-name-override": "bob"
+            }
+
+        },
+        "alice": {
+            "url": "grpc://localhost:8051",
+            "tlsCACerts": {
+                "path": "crypto-config/peerOrganizations/alice.files.com/tlsca/tlsca.alice.files.com-cert.pem"
+            },
+            "grpcOptions": {
+                "ssl-target-name-override": "alice"
+            }
+
+        }
+    },
+    "certificateAuthorities": { 
+        "ca.bob": {
+            "url": "https://localhost:7054",
+            "caName": "ca-bob",
+	"tlsCACerts": {
+                "path": "crypto-config/peerOrganizations/bob.files.com/tlsca/tlsca.bob.files.com-cert.pem"
+            },
+            "httpOptions": {
+                "verify": false
+            }
+        }
+    }
+}

@@ -1,0 +1,13 @@
+peer chaincode invoke -C sharechannelv1 -n ipfs1 -c '{"Args":["initFile","QmcciQEfDARd6VMN44MeWpHKHF7vBjXze4vYQ912732tKX","localhello.txt","txt","chinmay"]}' -o orderer:7050 --cafile $ORDERER_CA
+
+
+peer chaincode query -C sharechannelv1 -n ipfs1 -c '{"Args":["readFile","QmXBRsrcUYK6fmXXui9USkx7xT9bB1b7RTKRc6ATqc9VMQ"]}' -o orderer:7050 --cafile $ORDERER_CA
+
+
+
+
+peer chaincode invoke -C sharechannelv1 -n ipfs1 -c '{"Args":["delete","QmXBRsrcUYK6fmXXui9USkx7xT9bB1b7RTKRc6ATqc9VMQ"]}' -o orderer:7050 --cafile $ORDERER_CA
+
+
+
+gateway.ipfs.io/ipfs/QmXBRsrcUYK6fmXXui9USkx7xT9bB1b7RTKRc6ATqc9VMQ

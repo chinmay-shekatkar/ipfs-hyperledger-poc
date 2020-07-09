@@ -1,0 +1,21 @@
+{
+  "name": "apiClient",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.17.1",
+    "fabric-ca-client": "^1.4.10",
+    "fabric-network": "^1.4.10",
+    "fs": "0.0.1-security",
+    "ipfs": "^0.47.0",
+    "ipfs-api": "^26.1.2",
+    "mysql": "^2.18.1"
+  }
+}
